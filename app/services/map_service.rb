@@ -4,7 +4,7 @@ class MapService
       req.params[:location] = location
     end
 
-    JSON.parse(response.body, symbolize_keys: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.conn
