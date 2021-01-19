@@ -4,7 +4,11 @@ class Api::V1::WeatherController < ApplicationController
 
     lat, long = MapFacade.get_coords(location)
 
-    weather = WeatherFacade.get_weather(lat, long)
+    forecast = WeatherFacade.get_weather(lat, long)
+
+    forecast.id = nil
+
+    output = ForecastSerializer.new(forecast)
 
     render json: output
   end

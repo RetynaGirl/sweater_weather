@@ -18,7 +18,7 @@ class WeatherFacade
   end
 
   def self.weather_params(input, type)
-    output = input.slice(:sunrise, :sunset, :humidity, :uvi, :visibility, :wind_speed)
+    output = input.slice(:humidity, :uvi, :visibility, :wind_speed)
 
     output[:wind_direction] = wind_direction(input[:wind_deg])
 
@@ -32,8 +32,14 @@ class WeatherFacade
 
     output[:feels_like] = input[:feels_like] unless type == 'daily'
 
-    output[:datetime] = input[:dt]
+    output[:datetime] = Time.at(input[:dt]).to_datetime
+    output[:sunrise] = Time.at(input[:sunrise]).to_datetime if input[:sunrise]
+    output[:sunset] = Time.at(input[:sunset]).to_datetime if input[:sunrise]
+
     output[:forecast_type] = type
+
+    output[:conditions] = input[:weather][0][:description]
+    output[:icon] = input[:weather][0][:icon]
 
     output
   end
