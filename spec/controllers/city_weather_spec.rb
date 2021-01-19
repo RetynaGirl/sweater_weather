@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe Api::V1::WeatherController, type: :controller do
   it 'when a request comes in for weather forcast' do
-    input = JSON.parse(IO.read('spec/fixtures/denver_weather_return.json'), symbolize_names: true)
+    # input = JSON.parse(IO.read('spec/fixtures/denver_weather_return.json'), symbolize_names: true)
 
-    allow(WeatherService).to receive(:weather).and_return(input)
+    # allow(WeatherService).to receive(:weather).and_return(input)
 
     get :show, params: { location: 'denver,co' }
 
