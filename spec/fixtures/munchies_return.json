@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "null",
+    "type": "munchie",
+    "attributes": {
+      "destination_city": "Pueblo, CO",
+      "travel_time": "1 hours 48 min",
+      "forecast": {
+        "summary": "Cloudy with a chance of meatballs",
+        "temperature": "83"
+      },
+      "restaurant": {
+        "name": "Chinese Restaurant",
+        "address": "4602 N. Elizabeth St, Ste 120, Pueblo, CO 81008"
+      }
+    }
+  }
+}
