@@ -18,7 +18,7 @@ describe Api::V1::MunchiesController, type: :controller do
     expect(data[:attributes][:travel_time]).to be_a String
     expect(data[:attributes][:forecast]).to be_a Hash
     expect(data[:attributes][:forecast][:summary]).to be_a String
-    expect(data[:attributes][:forecast][:temperature]).to be_a String
+    expect(data[:attributes][:forecast][:temperature]).to be_a Float
 
     expect(data[:attributes][:restaurant]).to be_a Hash
     expect(data[:attributes][:restaurant][:name]).to be_a String
