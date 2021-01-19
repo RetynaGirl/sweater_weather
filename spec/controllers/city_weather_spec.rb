@@ -4,7 +4,7 @@ describe Api::V1::WeatherController, type: :controller do
   it 'when a request comes in for weather forcast' do
     get :show, params: { location: 'denver,co' }
 
-     output = JSON.parse(response.body, symbolize_keys: true)
+     output = JSON.parse(response.body, symbolize_names: true)
 
     expect(output).to be_a Hash
 
