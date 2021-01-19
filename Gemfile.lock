@@ -65,6 +65,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.10.1)
+      activesupport (>= 5.0.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -141,6 +143,8 @@ GEM
     rspec-support (3.10.1)
     ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
+    shoulda-matchers (4.5.0)
+      activesupport (>= 4.2.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -174,12 +178,14 @@ DEPENDENCIES
   byebug
   faraday
   figaro
+  jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.4)
   rspec-rails
+  shoulda-matchers (~> 4.0)
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
