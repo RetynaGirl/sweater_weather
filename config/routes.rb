@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/forecast/', to: 'weather#show', as: :forecast
       get '/background/', to: 'background#show', as: :background
+
+      post '/users/', to: 'users#create', as: :user_create
     end
   end
 end
