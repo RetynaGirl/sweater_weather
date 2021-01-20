@@ -8,7 +8,7 @@ require 'rspec/rails'
 
 require 'simplecov'
 SimpleCov.start 'rails'
-SimpleCov.add_filter ["app/channels", "app/helpers", "app/mailers", "app/jobs", "app/models"]
+# SimpleCov.add_filter ["app/channels", "app/helpers", "app/mailers", "app/jobs", "app/models"]
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
