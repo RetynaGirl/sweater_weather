@@ -13,7 +13,7 @@ class Api::V1::WeatherController < ApplicationController
 
     begin
       lat, long = MapFacade.get_coords(location)
-    rescue ProjectError::NoResults
+    rescue ProjectError
         error = {
           error: 'No results for provided location'
         }
