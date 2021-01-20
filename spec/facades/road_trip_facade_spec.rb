@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe RoadTripFacade do
+describe RoadtripFacade do
   it 'get_trip' do
     origin = 'Denver, CO'
     destination = 'Pueblo, CO'
 
-    trip_data = RoadTripFacade.get_trip(origin, destination)
+    trip = RoadtripFacade.get_trip(origin, destination)
 
-    expect(trip_data[:route]).to be_a Hash
+    expect(trip).to be_a Roadtrip
   end
 end

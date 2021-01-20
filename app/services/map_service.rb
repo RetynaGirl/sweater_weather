@@ -12,9 +12,18 @@ class MapService
   end
 
   def self.trip(start_location, end_location)
+    locations = {
+      locations: [
+        {
+          street: start_location
+        },
+        {
+          street: end_location
+        }
+      ]
+    }
     response = conn.get('directions/v2/route') do |req|
-      req.params[:from] = start_location
-      req.params[:to] = end_location
+      req.body = locations.to_json
     end
 
     JSON.parse(response.body, symbolize_names: true)

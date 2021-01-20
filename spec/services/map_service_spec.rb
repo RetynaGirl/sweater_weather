@@ -16,7 +16,7 @@ describe MapService do
       start_location = 'Denver, CO'
       end_location = 'Pueblo, CO'
 
-      expect(MapService.trip(start_location, end_location)).to eq(parsed_output)
+      expect(MapService.trip(start_location, end_location)[:info][:statuscode]).to eq(0)
     end
   end
 end
