@@ -4,7 +4,11 @@ class MapService
       req.params[:location] = location
     end
 
-    JSON.parse(response.body, symbolize_names: true)
+    output = JSON.parse(response.body, symbolize_names: true)
+
+    raise ProjectError, output[:info][:messages].join(', ') if output[:info][:statuscode] == 400
+
+    output
   end
 
   def self.conn

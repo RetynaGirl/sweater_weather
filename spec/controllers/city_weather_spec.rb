@@ -30,6 +30,13 @@ describe Api::V1::WeatherController, type: :controller do
     expect(data[:attributes][:current_weather][:conditions]).to be_a String
     expect(data[:attributes][:current_weather][:icon]).to be_a String
 
+    expect(data[:attributes][:current_weather][:max_temp]).to eq nil
+    expect(data[:attributes][:current_weather][:min_temp]).to eq nil
+    expect(data[:attributes][:current_weather][:wind_speed]).to eq nil
+    expect(data[:attributes][:current_weather][:wind_direction]).to eq nil
+    expect(data[:attributes][:current_weather][:time]).to eq nil
+
+
     expect(data[:attributes][:daily_weather]).to be_a Array
     expect(data[:attributes][:daily_weather][0]).to be_a Hash
     expect(data[:attributes][:daily_weather][0][:date]).to be_a String
@@ -40,6 +47,11 @@ describe Api::V1::WeatherController, type: :controller do
     expect(data[:attributes][:daily_weather][0][:conditions]).to be_a String
     expect(data[:attributes][:daily_weather][0][:icon]).to be_a String
 
+    expect(data[:attributes][:daily_weather][0][:uvi]).to eq nil
+    expect(data[:attributes][:daily_weather][0][:feels_like]).to eq nil
+    expect(data[:attributes][:daily_weather][0][:humidity]).to eq nil
+    expect(data[:attributes][:daily_weather][0][:visibility]).to eq nil
+
     expect(data[:attributes][:hourly_weather]).to be_a Array
     expect(data[:attributes][:hourly_weather][0]).to be_a Hash
     expect(data[:attributes][:hourly_weather][0][:time]).to be_a String
@@ -48,6 +60,12 @@ describe Api::V1::WeatherController, type: :controller do
     expect(data[:attributes][:hourly_weather][0][:wind_direction]).to be_a String
     expect(data[:attributes][:hourly_weather][0][:conditions]).to be_a String
     expect(data[:attributes][:hourly_weather][0][:icon]).to be_a String
+
+    expect(data[:attributes][:hourly_weather][0][:sunrise]).to eq nil
+    expect(data[:attributes][:hourly_weather][0][:sunset]).to eq nil
+    expect(data[:attributes][:hourly_weather][0][:visibility]).to eq nil
+    expect(data[:attributes][:hourly_weather][0][:min_temp]).to eq nil
+    expect(data[:attributes][:hourly_weather][0][:max_temp]).to eq nil
   end
 
   it 'no location parameter' do
@@ -58,6 +76,5 @@ describe Api::V1::WeatherController, type: :controller do
     expect(output[:data]).to eq nil
     expect(output[:error]).to eq 'No location provided'
     expect(response.status).to eq 400
-
   end
 end
