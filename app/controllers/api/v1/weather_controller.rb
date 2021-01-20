@@ -11,15 +11,7 @@ class Api::V1::WeatherController < ApplicationController
       return
     end
 
-    begin
-      lat, long = MapFacade.get_coords(location)
-    rescue ProjectError
-        error = {
-          error: 'No results for provided location'
-        }
-
-        render json: error, status: 400
-    end
+    lat, long = MapFacade.get_coords(location)
 
     forecast = WeatherFacade.get_weather(lat, long)
 
