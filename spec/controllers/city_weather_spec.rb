@@ -49,4 +49,15 @@ describe Api::V1::WeatherController, type: :controller do
     expect(data[:attributes][:hourly_weather][0][:conditions]).to be_a String
     expect(data[:attributes][:hourly_weather][0][:icon]).to be_a String
   end
+
+  it 'no location parameter' do
+    get :show
+
+    output = JSON.parse(response.body, symbolize_names: true)
+
+    expect(output[:data]).to eq nil
+    expect(output[:error]).to eq 'No location provided'
+    expect(response.status).to eq 400
+
+  end
 end
